@@ -10,26 +10,28 @@ Before building and running the project, make sure you have the following instal
 - **Maven** (for building the project)
 - **Eclipse or IntelliJ** (for developing and running the project)
 
-## Build and Run
+## Simple way to build and run the project (using command line)
 
-Follow these steps to build and run the project in **Eclipse** or **IntelliJ**.
-
-### 1\. Clone the Repository
+### 1\. Clone the repository at your desired directory
 ```bash
+cd eclipse-workspace
 git clone https://github.com/amelraihana/ukdistancecalculator.git
-cd ukdistancecalculator
 ```
 
-### 2\. Build the Project with Maven
+### 2\. Build the project with Maven
 
-To build the project, navigate to the root directory of the project and run:
-
+Navigate to the root directory of the project and run:
 ```bash
+cd ukdistancecalculator
 mvn clean install
 ```
 This will download all necessary dependencies and build the application.
 
-### 3\. Run the Project
+### 3\. Run the Spring Boot application
+```bash
+mvn spring-boot:run
+```
+This will start the application, and it should be available at http://localhost:8080.
 
 #### From Eclipse/IntelliJ:
 
@@ -37,6 +39,7 @@ This will download all necessary dependencies and build the application.
 2.  **IntelliJ**: Right-click on the `UkDistanceCalculatorApplication.java` class (located in the `src/main/java/com/example/ukdistancecalculator/` directory) and select **Run 'UkDistanceCalculator'**.
 
 The application will start, and you can access the API at `http://localhost:8080`.
+
 
 API Endpoints
 -------------
@@ -46,8 +49,8 @@ API Endpoints
 -   **Request Type**: `GET`
 -   **URL**: `http://localhost:8080/distance?postcode1={postcode1}&postcode2={postcode2}`
 -   **Parameters**:
-    -   `postcode1`: The first postal code (e.g., "AB10 1XG").
-    -   `postcode2`: The second postal code (e.g., "AB10 6RN").
+    -   `postcode1`: The first postal code (e.g., "AB11 6UL").
+    -   `postcode2`: The second postal code (e.g., "AB11 8RQ").
 -   **Response**: Returns the distance between the two postal codes.
 
 ### 2\. Update Postal Code Coordinates
@@ -56,8 +59,8 @@ API Endpoints
 -   **URL**: `http://localhost:8080/update-postcode?postcode={postcode}&latitude={latitude}&longitude={longitude}`
 -   **Parameters**:
     -   `postcode`: The postal code you want to update (e.g., "AB10 1XG").
-    -   `latitude`: The latitude to associate with the postal code (e.g., "57.148").
-    -   `longitude`: The longitude to associate with the postal code (e.g., "-2.110").
+    -   `latitude`: The latitude to associate with the postal code (e.g., "56.789").
+    -   `longitude`: The longitude to associate with the postal code (e.g., "-2.123").
 -   **Response**: Confirms that the postal code coordinates were successfully updated.
 
 ### 3\. Get Coordinates for a Postal Code
