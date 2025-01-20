@@ -1,26 +1,25 @@
 # UK Distance Calculator
 
-This project provides a RESTful service for calculating the distance between UK postal codes. It uses Spring Boot for the backend and includes several features to enhance its functionality.
-
+This project provides a RESTful service for calculating the distance between UK postal codes. It uses Spring Boot for the backend and includes several useful features.
 
 ## Prerequisites
 
-Before building and running the project, make sure you have the following installed:
-- **Java 23** (or a compatible version)
+Before you start, make sure you have the following installed:
+- **Java 23** (or compatible version)
 - **Maven** (for building the project)
-- **Eclipse or IntelliJ** (for developing and running the project)
+- **Eclipse or IntelliJ** (for developing the project)
 
-## Simple way to build and run the project (using command line)
+## How to Build and Run the Project (Command Line)
 
-### 1\. Clone the repository at your desired directory
+### 1\. Clone the Repository 
+Navigate to the folder where you want to store the project and clone the repository:
 ```bash
-cd eclipse-workspace
+cd /path/to/your/folder
 git clone https://github.com/amelraihana/ukdistancecalculator.git
 ```
 
 ### 2\. Build the project with Maven
-
-Navigate to the root directory of the project and run:
+Navigate to the project folder and run:
 ```bash
 cd ukdistancecalculator
 mvn clean install
@@ -28,17 +27,11 @@ mvn clean install
 This will download all necessary dependencies and build the application.
 
 ### 3\. Run the Spring Boot application
+Start the application with the following command:
 ```bash
 mvn spring-boot:run
 ```
-This will start the application, and it should be available at http://localhost:8080.
-
-#### From Eclipse/IntelliJ:
-
-1.  **Eclipse**: Right-click on the project in the Project Explorer > **Run As** > **Spring Boot App**.
-2.  **IntelliJ**: Right-click on the `UkDistanceCalculatorApplication.java` class (located in the `src/main/java/com/example/ukdistancecalculator/` directory) and select **Run 'UkDistanceCalculator'**.
-
-The application will start, and you can access the API at `http://localhost:8080`.
+The app will be up and running at http://localhost:8080.
 
 
 API Endpoints
@@ -59,16 +52,16 @@ API Endpoints
 -   **URL**: `http://localhost:8080/update-postcode?postcode={postcode}&latitude={latitude}&longitude={longitude}`
 -   **Parameters**:
     -   `postcode`: The postal code you want to update (e.g., "AB10 1XG").
-    -   `latitude`: The latitude to associate with the postal code (e.g., "56.789").
-    -   `longitude`: The longitude to associate with the postal code (e.g., "-2.123").
--   **Response**: Confirms that the postal code coordinates were successfully updated.
+    -   `latitude`: The latitude of the postal code (e.g., "56.789").
+    -   `longitude`: The longitude of the postal code (e.g., "-2.123").
+-   **Response**: Confirms the update of the postal code's coordinates.
 
 ### 3\. Get Coordinates for a Postal Code
 
 -   **Request Type**: `GET`
 -   **URL**: `http://localhost:8080/get-coordinates?postcode={postcode}`
 -   **Parameters**:
-    -   `postcode`: The postal code for which to retrieve coordinates (e.g., "AB10 1XG").
+    -   `postcode`: The postal code to retrieve coordinates for (e.g., "AB10 1XG").
 -   **Response**: Returns the latitude and longitude for the specified postal code.
 
 
@@ -76,7 +69,7 @@ API Endpoints
 
 #### Unit Tests
 
-The project includes unit tests using JUnit 5 to verify the functionality of the service. You can run the tests using Maven:
+The project includes unit tests with JUnit 5 to ensure the service works correctly. You can run the tests with Maven:
 
 ```bash
 mvn test
@@ -84,15 +77,15 @@ mvn test
 
 #### Updating Postal Codes
 
-The API allows you to update the postal code-to-coordinate mapping by sending a `PUT` request to `/update-postcode`. The coordinates for the given postal code will be updated and persisted in the database.
+You can update the postal code-to-coordinate mapping by sending a PUT request to /update-postcode. This updates and saves the coordinates in the CSV file.
 
 #### Request Logging
 
-The application logs every request to the `/api/distance` endpoint, including the postal codes used in the request. The logs can be later aggregated for analysis. These logs are stored in the application's log files.
+The application logs every request to the /distance endpoint, including the postal codes used. These logs can be analyzed later for reporting purposes.
 
 #### Authentication
 
-To restrict access to the service, basic authentication is implemented. Users need to provide a valid username and password to access the API. You can configure the username and password in the `application.properties` file.
+Basic authentication is implemented to restrict access to the API. Users need a valid username and password to use the service. You can configure these in the application.properties file.
 
 Example configuration:
 ```properties
@@ -103,8 +96,9 @@ spring.security.user.password=password
 Technology Stack
 ----------------
 
--   **Spring Boot**: Framework for building the RESTful service.
--   **JUnit 5**: Used for writing unit tests.
--   **Maven**: Dependency management and build tool.
--   **Spring Security**: Provides basic authentication.
--   **Apache Commons CSV**: Used for parsing CSV data.
+-   **Spring Boot**: For building the RESTful service.
+-   **JUnit 5**: For writing unit tests.
+-   **Maven**: For managing dependencies and building the project.
+-   **Spring Security**: For basic authentication.
+-   **Apache Commons CSV**: For parsing CSV data.
+
